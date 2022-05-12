@@ -10,6 +10,7 @@ namespace SegundaAsignacion.Core.BaseEntity
     {
         public virtual int Id { get; set; }
         public virtual bool Eliminado { get; set; }
+        public virtual string? Nombre{ get; set; }
         public virtual DateTime FechaCreada { get; set; }
     }
 }

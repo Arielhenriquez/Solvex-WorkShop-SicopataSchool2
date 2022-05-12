@@ -10,5 +10,6 @@ namespace SegundaAsignacion.BL.Dtos
     {
         public string Correo { get; set; } = String.Empty;
         public string Contraseña { get; set; } = String.Empty;
+        public string Nombre { get; set; } = String.Empty;
     }
 }
