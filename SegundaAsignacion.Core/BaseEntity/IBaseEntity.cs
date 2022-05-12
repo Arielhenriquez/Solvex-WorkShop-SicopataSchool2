@@ -9,6 +9,7 @@ namespace SegundaAsignacion.Core.BaseEntity
     public interface IBaseEntity
     {
         int Id { get; set; }
+        string Nombre { get; set; }
         bool Eliminado { get; set; }
         DateTime FechaCreada { get; set; }
     }
