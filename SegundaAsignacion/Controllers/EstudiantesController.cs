@@ -48,16 +48,16 @@ namespace SegundaAsignacion.Controllers
         {
             estudiantes = _mapper.Map<Estudiantes>(estudiantesdto);
             _estudiantesServices.InsertEstudiantes(estudiantes);
-            return Ok("Data inserted");
+            return Ok(estudiantesdto);
         }
 
-        //[HttpPut(nameof(UpdateEstudiantes))]
-        //public IActionResult UpdateEstudiantes(EstudiantesDto estudiantes)
-        //{
-        //    _estudiantesServices.UpdateEstudiantes(estudiantes);
-        //    return Ok("Updation done");
-
-        //}
+        [HttpPut(nameof(UpdateEstudiantes))]
+        public IActionResult UpdateEstudiantes(EstudiantesDto estudiantesdto)
+        {
+            estudiantes = _mapper.Map<Estudiantes>(estudiantesdto);
+            _estudiantesServices.UpdateEstudiantes(estudiantes);
+            return Ok("Updation done");
+        }
 
         [HttpDelete(nameof(DeleteEstudiantes))]
         public IActionResult DeleteEstudiantes(int Id)

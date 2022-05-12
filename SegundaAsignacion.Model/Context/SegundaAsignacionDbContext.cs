@@ -15,7 +15,8 @@ namespace SegundaAsignacion.Model.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new EstudiantesMap());
+            //modelBuilder.ApplyConfiguration(new EstudiantesMap());
+            modelBuilder.ApplyConfiguration(new NotasMap());
             base.OnModelCreating(modelBuilder);
         }
 

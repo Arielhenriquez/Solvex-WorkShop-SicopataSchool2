@@ -1,9 +1,11 @@
 using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using SegundaAsignacion.BL.Mappings;
 using SegundaAsignacion.Model.Context;
 using SegundaAsignacion.Model.Repository;
 using SegundaAsignacion.Services.GenericServices;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ builder.Services.AddDbContext<SegundaAsignacionDbContext>(op => op.UseSqlServer(
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddTransient<ICrudService, CrudService>();
+
+builder.Services.AddFluentValidation(c => c.RegisterValidatorsFromAssembly
+(Assembly.GetExecutingAssembly()));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
