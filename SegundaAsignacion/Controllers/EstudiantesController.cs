@@ -10,11 +10,11 @@ namespace SegundaAsignacion.Controllers
     [ApiController]
     public class EstudiantesController : ControllerBase
     {
-        private readonly ICrudService _estudiantesServices;
+        private readonly ICrudEstudiantes _estudiantesServices;
         private readonly IMapper _mapper;
         public static Estudiantes estudiantes = new Estudiantes();
 
-        public EstudiantesController(ICrudService estudiantesServices, IMapper mapper)
+        public EstudiantesController(ICrudEstudiantes estudiantesServices, IMapper mapper)
         {
             _estudiantesServices = estudiantesServices;
             _mapper = mapper;

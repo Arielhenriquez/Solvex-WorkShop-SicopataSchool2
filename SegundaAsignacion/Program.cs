@@ -15,7 +15,9 @@ builder.Services.AddDbContext<SegundaAsignacionDbContext>(op => op.UseSqlServer(
     ServiceLifetime.Transient);
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddTransient<ICrudService, CrudService>();
+builder.Services.AddTransient<ICrudEstudiantes, CrudEstudiantes>();
+builder.Services.AddTransient<ICrudNotas, CrudNotas>();
+
 
 builder.Services.AddFluentValidation(c => c.RegisterValidatorsFromAssembly
 (Assembly.GetExecutingAssembly()));

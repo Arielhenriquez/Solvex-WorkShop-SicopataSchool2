@@ -15,6 +15,7 @@ namespace SegundaAsignacion.BL.Validators
             RuleFor(correo => correo.Correo).EmailAddress() 
                 .WithMessage("Inserte un correo valido, que contenga un @.");
             RuleFor(clave => clave.Contraseña).NotEmpty().MaximumLength(6);
+            RuleFor(nombre => nombre.Nombre).NotEmpty();
         }
     }
 }

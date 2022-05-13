@@ -14,6 +14,7 @@ namespace SegundaAsignacion.BL.Mappings
         public EstudiantesProfile()
         {
             CreateMap<EstudiantesDto, Estudiantes>();
+            CreateMap<NotasDto, Notas>();
         }
     }
 }

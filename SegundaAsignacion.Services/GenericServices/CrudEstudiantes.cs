@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace SegundaAsignacion.Services.GenericServices
 {
-    public class CrudService : ICrudService
+    public class CrudEstudiantes : ICrudEstudiantes
     {
         private IRepository<Estudiantes> _repository;
 
-        public CrudService(IRepository<Estudiantes> repository)
+        public CrudEstudiantes(IRepository<Estudiantes> repository)
         {
             _repository = repository;
         }
@@ -26,19 +26,19 @@ namespace SegundaAsignacion.Services.GenericServices
             return _repository.Get(id);
         }
 
-        public void InsertEstudiantes(Estudiantes estudiantes)
+        public void InsertEstudiantes(Estudiantes entity)
         {
-            _repository.Insert(estudiantes);
+            _repository.Insert(entity);
         }
 
-        public void UpdateEstudiantes(Estudiantes estudiantes)
+        public void UpdateEstudiantes(Estudiantes entity)
         {
-            _repository.Update(estudiantes);
+            _repository.Update(entity);
         }
         public void DeleteEstudiantes(int id)
         {
-            Estudiantes estudiantes = GetEstudiantes(id);
-            _repository.Remove(estudiantes);
+            Estudiantes entity = GetEstudiantes(id);
+            _repository.Remove(entity);
             _repository.SaveChanges();
         }
     }

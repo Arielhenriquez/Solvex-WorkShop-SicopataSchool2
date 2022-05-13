@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SegundaAsignacion.Services.GenericServices
 {
-    public interface ICrudService
+    public interface ICrudEstudiantes
     {
         IQueryable<Estudiantes> GetAllEstudiantes();
         Estudiantes GetEstudiantes(int id);
