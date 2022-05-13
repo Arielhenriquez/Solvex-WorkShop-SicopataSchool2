@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SegundaAsignacion.Model.Context;
 
@@ -11,9 +12,10 @@ using SegundaAsignacion.Model.Context;
 namespace SegundaAsignacion.Model.Migrations
 {
     [DbContext(typeof(SegundaAsignacionDbContext))]
-    partial class SegundaAsignacionDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220513030207_CreateTablaCrud")]
+    partial class CreateTablaCrud
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
