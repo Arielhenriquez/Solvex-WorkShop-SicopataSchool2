@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using Microsoft.IdentityModel.Tokens;
 using SegundaAsignacion.BL.Dtos;
 using SegundaAsignacion.Model.Entities;
@@ -39,6 +40,7 @@ namespace SegundaAsignacion.Controllers
 
         }
 
+        [EnableQuery]
         [HttpGet(nameof(GetAllEstudiantes))]
         public IActionResult GetAllEstudiantes()
         {
@@ -97,9 +99,9 @@ namespace SegundaAsignacion.Controllers
         }
 
         [HttpDelete(nameof(DeleteEstudiantes))]
-        public IActionResult DeleteEstudiantes(int Id)
+        public IActionResult DeleteEstudiantes(int id)
         {
-            _estudiantesServices.DeleteEstudiantes(Id);
+            _estudiantesServices.DeleteEstudiantes(id);
             return Ok("Data Deleted");
         }
     }

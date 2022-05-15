@@ -21,7 +21,6 @@ namespace SegundaAsignacion.Model.Context
             //modelBuilder.ApplyConfiguration(new EstudiantesMap());
             //modelBuilder.ApplyConfiguration(new NotasMap());
             base.OnModelCreating(modelBuilder);
-            //modelBuilder.Entity<Notas>();
         }
 
     }

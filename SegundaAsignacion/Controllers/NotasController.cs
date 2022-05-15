@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OData.Query;
 using SegundaAsignacion.BL.Dtos;
 using SegundaAsignacion.Model.Entities;
 using SegundaAsignacion.Services.GenericServices;
@@ -14,7 +15,7 @@ namespace SegundaAsignacion.Controllers
     {
         private readonly ICrudNotas _notasServices;
         private readonly IMapper _mapper;
-        public static Notas notas = new Notas();
+        public static Notas notas = new();
 
         public NotasController(ICrudNotas notasService, IMapper mapper)
         {
@@ -34,7 +35,7 @@ namespace SegundaAsignacion.Controllers
             return BadRequest("No records found");
 
         }
-
+        [EnableQuery]
         [HttpGet(nameof(GetAllNotas))]
         public IActionResult GetAllNotas()
         {
