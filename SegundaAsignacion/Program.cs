@@ -10,6 +10,7 @@ using SegundaAsignacion.BL.Validators;
 using SegundaAsignacion.Model.Context;
 using SegundaAsignacion.Model.Repository;
 using SegundaAsignacion.Services.GenericServices;
+using SegundaAsignacion.Services.JWT;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 
@@ -20,15 +21,16 @@ string myAppDbContextConnection = builder.Configuration.GetConnectionString("Def
 builder.Services.AddDbContext<SegundaAsignacionDbContext>(op => op.UseSqlServer(myAppDbContextConnection),
     ServiceLifetime.Transient);
 
+
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddTransient<ICrudEstudiantes, CrudEstudiantes>();
 builder.Services.AddTransient<ICrudNotas, CrudNotas>();
-
+builder.Services.AddTransient<IGenerateToken, GenerateToken>();
 
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ValidacionEstudiantes>());
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ValidacionNotas>());
 
-builder.Services.AddControllers().AddOData(options =>  
+builder.Services.AddControllers().AddOData(options =>
 options.Select().Filter().OrderBy().Count());
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
