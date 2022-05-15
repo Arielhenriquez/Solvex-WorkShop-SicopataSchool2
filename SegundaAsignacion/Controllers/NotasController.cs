@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SegundaAsignacion.BL.Dtos;
 using SegundaAsignacion.Model.Entities;
@@ -9,6 +9,7 @@ namespace SegundaAsignacion.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class NotasController : ControllerBase
     {
         private readonly ICrudNotas _notasServices;
@@ -22,6 +23,7 @@ namespace SegundaAsignacion.Controllers
         }
 
         [HttpGet(nameof(GetNotasById))]
+        [Authorize(Roles = "Admin")]
         public IActionResult GetNotasById(int id)
         {
             var result = _notasServices.GetNotas(id);

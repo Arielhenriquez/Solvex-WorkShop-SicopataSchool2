@@ -1,16 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SegundaAsignacion.Core.BaseEntity;
 using SegundaAsignacion.Model.Context;
-using SegundaAsignacion.Model.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SegundaAsignacion.Model.Repository
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity 
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : BaseEntity
     {
         private readonly SegundaAsignacionDbContext? _segundaAsignacionDbContext;
         private DbSet<TEntity> entities;
@@ -43,7 +37,7 @@ namespace SegundaAsignacion.Model.Repository
 
         public void Update(TEntity entity)
         {
-            if(entity == null)
+            if (entity == null)
             {
                 throw new ArgumentNullException("entity");
             }
@@ -75,6 +69,6 @@ namespace SegundaAsignacion.Model.Repository
             _segundaAsignacionDbContext.SaveChanges();
         }
 
-       
+
     }
 }
